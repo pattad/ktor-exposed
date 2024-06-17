@@ -1,6 +1,6 @@
 # Ktor-Exposed Example Project
 
-This repository demonstrates how to integrate Ktor and Exposed to build a Kotlin-based web application with database interactions.
+This repository demonstrates how to integrate Ktor and Exposed to build a Kotlin-based web application with database interactions and Rest API.
 
 ## Features
 
