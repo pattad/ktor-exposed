@@ -12,7 +12,7 @@ fun Application.configureValidation() {
     install(RequestValidation) {
         validate<Movie> { movie ->
             if (movie.imdbId.length <= 8)
-                ValidationResult.Invalid("A imdb ID should be greater than 10 characters.")
+                ValidationResult.Invalid("A imdb ID should be min 8 characters.")
             else ValidationResult.Valid
         }
     }

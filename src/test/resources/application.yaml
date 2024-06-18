@@ -5,4 +5,4 @@ ktor:
     deployment:
         port: 8080
     development: true
-    enableApiDoc: true
+    enableApiDoc: false

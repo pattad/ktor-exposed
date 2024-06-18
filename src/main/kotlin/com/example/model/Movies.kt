@@ -49,7 +49,6 @@ class MovieService {
         return@transaction Movie(newMovies.id.value, newMovies.imdbId, newMovies.name, newMovies.director)
     }
 
-    // searchString e.g. %nick%
     fun findByDirector(searchString: String): List<Movie> = transaction {
         Movies.find { MovieTable.director.lowerCase() like "%" + searchString + "%" }
             .map { movie -> toMovieDTO(movie) }

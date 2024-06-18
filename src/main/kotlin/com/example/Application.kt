@@ -9,13 +9,20 @@ import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 
-fun main() {
-    embeddedServer(Netty, port = 8080, module = Application::module).start(wait = true)
+fun main(args: Array<String>) {
+    EngineMain.main(args)
+    embeddedServer(Netty, module = Application::module).start(wait = true)
 }
 
 fun Application.module() {
+    val enableApiDoc = environment.config.propertyOrNull("ktor.enableApiDoc")?.getString().toBoolean()
+
     configureSerialization()
-    configureHTTP()
+
+    if (enableApiDoc) {
+        configureHTTP()
+    }
+
     configureDatabase()
     configureRouting(MovieService(), UserService(), UserRatingService())
     configureValidation()
